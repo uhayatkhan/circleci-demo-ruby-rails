@@ -1,7 +1,7 @@
 version: 2.1
 workflows:
   version: 2
-  Manual_push:
+  commit:
     jobs:
       build:
         parallelism: 3
@@ -80,6 +80,13 @@ workflows:
         - store_test_results:
             path: test_results
   nightly:
+    triggers: #use the triggers key to indicate a scheduled build
+      - schedule:
+          cron: "1 * * * *" # use cron syntax to set the schedule
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       build:
         parallelism: 3
@@ -157,10 +164,3 @@ workflows:
         # Save test results for timing analysis
         - store_test_results:
             path: test_results
-    triggers: #use the triggers key to indicate a scheduled build
-      - schedule:
-          cron: "1 * * * *" # use cron syntax to set the schedule
-          filters:
-            branches:
-              only:
-                - master
