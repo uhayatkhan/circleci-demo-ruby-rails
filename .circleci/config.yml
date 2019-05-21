@@ -78,7 +78,12 @@ jobs:
           path: test_results
 workflows:
   version: 2
+  commit:
+    jobs:
+      - build
   build_and_test:
+    jobs:
+      - build
     triggers:
       - schedule:
           cron: "1 * * * *"
@@ -86,6 +91,4 @@ workflows:
             branches:
               only:
                 - master
-    jobs:
-      - build
       
