@@ -24,6 +24,13 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
+      - run:
+          name: Install node-fetch
+          command: npm install node-fetch
+      
+      - run:
+          name: Wait for other staging deployment builds to finish
+          command: node .circleci/build.js;
 
       # Restore bundle cache
       - restore_cache:
