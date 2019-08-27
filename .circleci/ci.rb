@@ -1,8 +1,8 @@
 
 require 'net/http'
 require 'json'
-require 'async/await'
-include Async::Await
+#require 'async/await'
+#include Async::Await
 
 ORGANIZATION = '';
 PROJECT = '';
@@ -16,8 +16,7 @@ CURRENTBUILDNUM = ENV['CIRCLE_BUILD_NUM'] #process.env.CIRCLE_BUILD_NUM;
 JOB = 'auto-deploy';
 INTERVAL = 20000;
   
-
-async def  wait
+def  wait
   uri = URI(URL)
   response = Net::HTTP.get(uri)
   builds = JSON.parse(response)
