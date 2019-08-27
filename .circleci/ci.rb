@@ -17,13 +17,13 @@ JOB = 'auto-deploy';
 INTERVAL = 20000;
   
 
-async def  wait() {
+async def  wait
   uri = URI(URL)
   response = Net::HTTP.get(uri)
   builds = JSON.parse(response)
   print(builds)
-}
+end
 
-wait()
+wait
 
 
