@@ -8,10 +8,11 @@ PROJECT = 'circleci-demo-ruby-rails';
 TOKEN = ENV['CIRCLE_API_TOKEN'] #process.env.CIRCLE_API_TOKEN;
 BRANCH = 'master';
 URL = `https://circleci.com/api/v1.1/project/github/#{ORGANIZATION}/#{PROJECT}/tree/#{BRANCH}?circle-token=#{TOKEN}&shallow=true&filter=running`;
-
+print(URL)
 
 INTERVAL = 20;
 CURRENTBUILDNUM = ENV['CIRCLE_BUILD_NUM'] #ENV['CIRCLE_BUILD_NUM']
+print(ENV['CIRCLE_BUILD_NUM'])
 JOB = 'build';
 
 def  wait
@@ -24,7 +25,8 @@ def  wait
   		isSameJob = true
   	end
   end
-
+  rint(builds[0]['build_num'])
+  print(Integer(CURRENTBUILDNUM))
   if (Integer(builds[0]['build_num']) != Integer(CURRENTBUILDNUM))
   	isDifferentBuild = true
   end
