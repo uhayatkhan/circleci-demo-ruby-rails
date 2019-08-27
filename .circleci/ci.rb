@@ -4,11 +4,11 @@ require 'json'
 #require 'async/await'
 #include Async::Await
 
-ORGANIZATION = '';
-PROJECT = '';
+ORGANIZATION = 'uhayatkhan';
+PROJECT = 'circleci-demo-ruby-rails';
 # This is the environment variable added via CircleCI UI
 TOKEN = ENV['CIRCLE_API_TOKEN'] #process.env.CIRCLE_API_TOKEN;
-BRANCH = 'devops';
+BRANCH = 'master';
 URL = `https://circleci.com/api/v1.1/project/github/#{ORGANIZATION}/#{PROJECT}/tree/#{BRANCH}?circle-token=#{TOKEN}&shallow=true&filter=running`;
 
 # This is a build-in environment variable
