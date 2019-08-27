@@ -16,15 +16,13 @@ def  wait
   uri = URI('https://circleci.com/api/v1.1/project/github/uhayatkhan/circleci-demo-ruby-rails/tree/master?circle-token=ce62040f14d50d1a16390838d47b2379c40965be&shallow=true')
   response = Net::HTTP.get(uri)
   builds = JSON.parse(response)
-  print(builds[0]['workflows'])
 
   if builds[0].has_key? 'workflows'
   	if builds[0]['workflows']['job_name'] == JOB
   		isSameJob = true
   	end
   end
-  print(builds[0]['build_num'])
-  print(Integer(CURRENTBUILDNUM))
+
   if (Integer(builds[0]['build_num']) != Integer(CURRENTBUILDNUM))
   	isDifferentBuild = true
   end
