@@ -32,7 +32,7 @@ jobs:
       
       - run:
           name: Wait for other staging deployment builds to finish
-          command: node .circleci/build.js;
+          command: ruby .circleci/test.rb;
 
       # Restore bundle cache
       - restore_cache:
