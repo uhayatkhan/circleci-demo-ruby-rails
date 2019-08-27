@@ -13,7 +13,7 @@ URL = `https://circleci.com/api/v1.1/project/github/#{ORGANIZATION}/#{PROJECT}/t
 
 # This is a build-in environment variable
 CURRENTBUILDNUM = ENV['CIRCLE_BUILD_NUM'] #process.env.CIRCLE_BUILD_NUM;  
-JOB = 'auto-deploy';
+JOB = 'build';
 INTERVAL = 20000;
   
 def  wait
