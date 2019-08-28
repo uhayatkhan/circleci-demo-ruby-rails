@@ -19,7 +19,7 @@ print(ENV['CIRCLE_BUILD_NUM'])
 JOB = 'build';
 
 def  wait
-  uri = URI(URL)
+  uri = URI.parse(URL)
   response = Net::HTTP.get(uri)
   builds = JSON.parse(response)
 
