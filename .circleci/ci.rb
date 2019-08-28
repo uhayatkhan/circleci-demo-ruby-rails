@@ -25,7 +25,7 @@ def  wait
   		isSameJob = true
   	end
   end
-  rint(builds[0]['build_num'])
+  print(builds[0]['build_num'])
   print(Integer(CURRENTBUILDNUM))
   if (Integer(builds[0]['build_num']) != Integer(CURRENTBUILDNUM))
   	isDifferentBuild = true
