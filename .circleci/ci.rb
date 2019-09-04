@@ -3,23 +3,12 @@ require 'json'
 
 
 
-
-
-ORGANIZATION = 'uhayatkhan';
-PROJECT = 'circleci-demo-ruby-rails';
-
-TOKEN = ENV['CIRCLE_API_TOKEN'] #process.env.CIRCLE_API_TOKEN;
-BRANCH = 'master';
-URL = `https://circleci.com/api/v1.1/project/github/#{ORGANIZATION}/#{PROJECT}/tree/#{BRANCH}?circle-token=#{TOKEN}&shallow=true&filter=running`;
-print(URL)
-
 INTERVAL = 20;
 CURRENTBUILDNUM = ENV['CIRCLE_BUILD_NUM'] #ENV['CIRCLE_BUILD_NUM']
-print(ENV['CIRCLE_BUILD_NUM'])
 JOB = 'build';
 
 def  wait
-  uri = URI.parse(URL)
+  uri = URI.parse('https://circleci.com/api/v1.1/project/github/uhayatkhan/circleci-demo-ruby-rails/tree/master?circle-token=#{TOKEN}&shallow=true&filter=running')
   response = Net::HTTP.get(uri)
   builds = JSON.parse(response)
 
