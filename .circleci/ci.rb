@@ -8,9 +8,9 @@ CURRENTBUILDNUM = ENV['CIRCLE_BUILD_NUM'] #ENV['CIRCLE_BUILD_NUM']
 JOB = 'build';
 BRANCH = "master"
 TOKEN = ENV['CIRCLE_API_TOKEN']
-
+URL = "https://circleci.com/api/v1.1/project/github/#{ORG}/#{PROJECT}/tree/#{BRANCH}?circle-token=#{TOKEN}&shallow=true&filter=running"
 def  wait
-  uri = URI.parse('https://circleci.com/api/v1.1/project/github/#{ORG}/#{PROJECT}/tree/#{BRANCH}?circle-token=#{TOKEN}&shallow=true&filter=running')
+  uri = URI.parse(URL)
   response = Net::HTTP.get(uri)
   builds = JSON.parse(response)
 
