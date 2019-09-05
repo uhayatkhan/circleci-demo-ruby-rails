@@ -1,6 +1,7 @@
 require 'net/http'
 require 'json'
 
+
 ORG= "uhayatkhan"
 PROJECT = "circleci-demo-ruby-rails"
 INTERVAL = 20;
